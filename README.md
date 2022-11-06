@@ -8,7 +8,8 @@
 
 ## Features
 
-The addon enables to export glTF assets with the [glTF `EXT_mesh_gpu_instancing` extension](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing/README.md) in Blender.
+The addon enables to export instanced geometries created with [Geometry Nodes](https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html) as glTF assets with the
+[glTF `EXT_mesh_gpu_instancing` extension](https://github.com/KhronosGroup/glTF/blob/main/extensions/2.0/Vendor/EXT_mesh_gpu_instancing/README.md) in [Blender](https://www.blender.org/).
 
 Import support is work in progress.
 
@@ -43,12 +44,14 @@ Ensure the addon is installed and enabled. You can easily find the addon by inpu
 
 ## How to use
 
-T.B.D.
-
-**Blender + Geometry Nodes + Instancing**
+Create instanced geometries with Geometry Nodes. Note that "Realize instances" node is not needed.
 
 <img src="https://user-images.githubusercontent.com/7637832/200151844-c4ade71d-0507-4268-8356-139157fb2db6.png" width="640" alt="Blender + Geometry Nodes + Instancing">
 
-**Exported glTF**
+Export the asset as glTF with "Apply Modifiers" export option checked.
+
+<img src="https://user-images.githubusercontent.com/7637832/200200340-04552522-d518-4985-814d-154de1045615.png" width="360" alt="Check Apply Modifiers">
+
+You will get glTF having `EXT_mesh_gpu_instancing` extension.
 
 <img src="https://user-images.githubusercontent.com/7637832/200151884-2f335fd0-3270-4b68-abc1-998837a0f9c6.png" width="480" alt="Exported glTF">
