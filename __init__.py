@@ -48,7 +48,7 @@ class glTF2ExportUserExtension:
         rotations = []
         scales = []
         for object_instance in depsgraph.object_instances:
-            if blender_object_eval != object_instance.instance_object:
+            if not object_instance.is_instance or blender_object_eval != object_instance.parent:
                 continue
             found = True
 
