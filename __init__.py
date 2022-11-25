@@ -67,9 +67,7 @@ class glTF2ExportUserExtension:
 
             gltf2_node.mesh = result
 
-            # @TODO: Convert world space matrix to parent (this node)
-            #        space matrix
-            loc, rot, sca = object_instance.matrix_world.decompose()
+            loc, rot, sca = object_instance.object.matrix_local.decompose()
 
             if export_settings[gltf2_blender_export_keys.YUP]:
                 locations.append(loc.x)
