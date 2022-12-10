@@ -1,3 +1,4 @@
+import numpy as np
 import bpy
 from io_scene_gltf2.io.com import gltf2_io_constants
 from io_scene_gltf2.blender.exp import gltf2_blender_export_keys
@@ -10,7 +11,7 @@ bl_info = {
     "name" : "glTF EXT_mesh_gpu_instancing IO",
     "author" : "Takahiro Aoyagi",
     "description" : "Addon for glTF EXT_mesh_gpu_instancing extension",
-    "blender" : (3, 3, 0),
+    "blender" : (3, 4, 0),
     "version" : (0, 0, 2),
     "location" : "",
     "wiki_url": "https://github.com/takahirox/glTF-Blender-IO-EXT-mesh-gpu-instancing/wiki",
@@ -112,19 +113,19 @@ class glTF2ExportUserExtension:
             name=glTF_extension_name,
             extension={"attributes": {
                 "TRANSLATION": gltf2_blender_gather_primitive_attributes.array_to_accessor(
-                    locations,
+                    np.array(locations, dtype=np.float32).reshape(int(len(locations) / 3), 3),
                     component_type=gltf2_io_constants.ComponentType.Float,
                     data_type=gltf2_io_constants.DataType.Vec3,
                     include_max_and_min=True,
                 ),
                 "ROTATION": gltf2_blender_gather_primitive_attributes.array_to_accessor(
-                    rotations,
+                    np.array(rotations, dtype=np.float32).reshape(int(len(rotations) / 4), 4),
                     component_type=gltf2_io_constants.ComponentType.Float,
                     data_type=gltf2_io_constants.DataType.Vec4,
                     include_max_and_min=True,
                 ),
                 "SCALE": gltf2_blender_gather_primitive_attributes.array_to_accessor(
-                    scales,
+                    np.array(scales, dtype=np.float32).reshape(int(len(scales) / 3), 3),
                     component_type=gltf2_io_constants.ComponentType.Float,
                     data_type=gltf2_io_constants.DataType.Vec3,
                     include_max_and_min=True,

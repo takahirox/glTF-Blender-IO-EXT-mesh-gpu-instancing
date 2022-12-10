@@ -4,7 +4,7 @@
 
 ## Compatible Blender version
 
-&gt;= 3.3
+&gt;= 3.4
 
 ## Features
 
