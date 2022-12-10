@@ -12,7 +12,7 @@ bl_info = {
     "author" : "Takahiro Aoyagi",
     "description" : "Addon for glTF EXT_mesh_gpu_instancing extension",
     "blender" : (3, 4, 0),
-    "version" : (0, 0, 2),
+    "version" : (0, 0, 3),
     "location" : "",
     "wiki_url": "https://github.com/takahirox/glTF-Blender-IO-EXT-mesh-gpu-instancing/wiki",
     "tracker_url": "https://github.com/takahirox/glTF-Blender-IO-EXT-mesh-gpu-instancing/issues",
