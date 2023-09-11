@@ -1,7 +1,6 @@
 import numpy as np
 import bpy
 from io_scene_gltf2.io.com import gltf2_io_constants
-from io_scene_gltf2.blender.exp import gltf2_blender_export_keys
 from io_scene_gltf2.blender.exp import gltf2_blender_gather_nodes
 from io_scene_gltf2.blender.exp import gltf2_blender_gather_mesh
 from io_scene_gltf2.blender.exp import gltf2_blender_gather_primitive_attributes
