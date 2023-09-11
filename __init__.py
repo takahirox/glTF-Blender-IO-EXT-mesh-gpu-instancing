@@ -38,7 +38,7 @@ class glTF2ExportUserExtension:
 
     # @TODO: Optimize
     def gather_node_hook(self, gltf2_node, blender_object, export_settings):
-        if not export_settings[gltf2_blender_export_keys.APPLY]:
+        if not export_settings['gltf_apply']:
             return
 
         depsgraph = bpy.context.evaluated_depsgraph_get()
@@ -77,7 +77,7 @@ class glTF2ExportUserExtension:
             local_matrix = parent_world_matrix_inverted @ object_instance.matrix_world
             loc, rot, sca = local_matrix.decompose()
 
-            if export_settings[gltf2_blender_export_keys.YUP]:
+            if export_settings['gltf_yup']:
                 locations.append(loc.x)
                 locations.append(loc.z)
                 locations.append(-loc.y)
