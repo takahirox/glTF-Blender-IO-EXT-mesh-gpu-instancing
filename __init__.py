@@ -65,7 +65,6 @@ class glTF2ExportUserExtension:
                 None, # uuid_for_skined_data,
                 None, # vertex_groups,
                 None, # modifiers,
-                True, # skip_filter
                 materials,
                 None, # original_mesh
                 export_settings
