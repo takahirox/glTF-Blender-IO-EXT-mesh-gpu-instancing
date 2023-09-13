@@ -1,7 +1,6 @@
 import numpy as np
 import bpy
 from io_scene_gltf2.io.com import gltf2_io_constants
-from io_scene_gltf2.blender.exp import gltf2_blender_export_keys
 from io_scene_gltf2.blender.exp import gltf2_blender_gather_nodes
 from io_scene_gltf2.blender.exp import gltf2_blender_gather_mesh
 from io_scene_gltf2.blender.exp import gltf2_blender_gather_primitive_attributes
@@ -38,7 +37,7 @@ class glTF2ExportUserExtension:
 
     # @TODO: Optimize
     def gather_node_hook(self, gltf2_node, blender_object, export_settings):
-        if not export_settings[gltf2_blender_export_keys.APPLY]:
+        if not export_settings['gltf_apply']:
             return
 
         depsgraph = bpy.context.evaluated_depsgraph_get()
@@ -66,7 +65,6 @@ class glTF2ExportUserExtension:
                 None, # uuid_for_skined_data,
                 None, # vertex_groups,
                 None, # modifiers,
-                True, # skip_filter
                 materials,
                 None, # original_mesh
                 export_settings
@@ -77,7 +75,7 @@ class glTF2ExportUserExtension:
             local_matrix = parent_world_matrix_inverted @ object_instance.matrix_world
             loc, rot, sca = local_matrix.decompose()
 
-            if export_settings[gltf2_blender_export_keys.YUP]:
+            if export_settings['gltf_yup']:
                 locations.append(loc.x)
                 locations.append(loc.z)
                 locations.append(-loc.y)
